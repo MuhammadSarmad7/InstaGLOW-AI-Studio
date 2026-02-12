@@ -1,0 +1,7 @@
+flask
+requests
+python-dotenv
+openai
+pydantic
+pydantic-settings
+Pillow

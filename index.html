@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaGLOW | AI Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="main-wrapper">
+    
+    <div class="studio-panel">
+        <div class="logo-area">
+            <span class="icon">✨</span> InstaGLOW
+        </div>
+
+        <form id="campaignForm">
+            <div class="input-block">
+                <label>1. Upload Raw Photo</label>
+                <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+                    <input type="file" id="fileInput" name="product_image" accept="image/*" hidden onchange="previewFile()">
+                    <img id="uploadPreview" src="" style="display:none;">
+                    <div id="uploadText">
+                        <span>📸</span>
+                        <p>Click to Upload Product</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label>2. Visual Vision</label>
+                <input type="text" name="image_guidance" placeholder="e.g. Neon lighting, marble table, splash of water..." required>
+                <small>Describe how the studio shot should look.</small>
+            </div>
+
+            <div class="input-block">
+                <label>3. Caption Details</label>
+                <textarea name="caption_guidance" placeholder="What is the product? What are the key benefits?" required></textarea>
+            </div>
+
+            <div class="input-block">
+                <label>4. Vibe</label>
+                <div class="tone-selector">
+                    <label class="tone-radio">
+                        <input type="radio" name="tone" value="Luxury & Minimal" checked>
+                        <span>💎 Luxury</span>
+                    </label>
+                    <label class="tone-radio">
+                        <input type="radio" name="tone" value="Fun & Energetic">
+                        <span>⚡ Energetic</span>
+                    </label>
+                    <label class="tone-radio">
+                        <input type="radio" name="tone" value="Cozy & Warm">
+                        <span>☕ Cozy</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" id="generateBtn">
+                <span>Ignite Creativity 🚀</span>
+                <div class="spinner" id="loader"></div>
+            </button>
+        </form>
+    </div>
+
+    <div class="gallery-panel">
+        <div class="phone-mockup">
+            <div class="phone-header">
+                <div class="notch"></div>
+            </div>
+            
+            <div class="insta-post">
+                <div class="insta-header">
+                    <div class="avatar"></div>
+                    <div class="username">YourBrand</div>
+                </div>
+                
+                <div class="insta-image-container">
+                    <div id="resultPlaceholder">
+                        <p>AI Magic Happening Here...</p>
+                    </div>
+                    <img id="finalImage" src="" style="display:none;">
+                </div>
+                
+                <div class="insta-actions">
+                    <span>❤️</span> <span>💬</span> <span>🚀</span>
+                </div>
+                
+                <div class="insta-caption">
+                    <p id="finalCaption">
+                        <span style="opacity:0.5;">Your caption will appear here...</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <button id="downloadBtn" style="display:none; margin-top: 20px; background: #fff; color: #333; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <span>⬇️ Download Image</span>
+        </button>
+    </div>
+            
+            <div class="insta-post">
+                <div class="insta-header">
+                    <div class="avatar"></div>
+                    <div class="username">YourBrand_Official</div>
+                </div>
+                
+                <div class="insta-image-container">
+                    <div id="resultPlaceholder">
+                        <p>AI Magic Happening Here...</p>
+                    </div>
+                    <img id="finalImage" src="" style="display:none;">
+                </div>
+                
+                <div class="insta-actions">
+                    <span>❤️</span> <span>💬</span> <span>🚀</span>
+                </div>
+                
+                <div class="insta-caption">
+                    <p id="finalCaption">
+                        <span style="opacity:0.5;">Your caption will appear here...</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
